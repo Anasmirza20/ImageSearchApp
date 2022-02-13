@@ -70,13 +70,10 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_gallery, menu)
-
         val searchItem = menu.findItem(R.id.action_search)
         val searchView = searchItem.actionView as SearchView
-
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-
                 if (query != null) {
                     binding.recyclerView.scrollToPosition(0)
                     viewModel.searchPhotos(query)
@@ -89,9 +86,5 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
                 return true
             }
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
